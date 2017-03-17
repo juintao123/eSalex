@@ -17,5 +17,11 @@ namespace eSalex.Controllers
             ViewBag.CustName = order.CustName;
             return View();            
         }
+
+        public ActionResult Index2(String id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
     }
 }
