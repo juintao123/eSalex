@@ -18,10 +18,17 @@ namespace eSalex.Controllers
             return View();            
         }
 
-        public ActionResult Index2(String id)
+        public ActionResult InsertOrder()
         {
-            ViewBag.id = id;
             return View();
+        }
+
+        [HttpPost()]
+        public ActionResult InsertOrder(Models.Order order)
+        {
+            Models.OrderService orderService = new Models.OrderService();
+            orderService.InsertOrder(order);
+            return View("Index");
         }
     }
 }

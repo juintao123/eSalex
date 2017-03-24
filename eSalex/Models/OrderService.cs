@@ -9,17 +9,17 @@ namespace eSalex.Models
     public class OrderService
     {
 
-        public void InsertOrder()
+        public void InsertOrder(Models.Order order)
         {
 
         }
 
-        public void DeleteOrderById()
+        public void DeleteOrderById(string id)
         {
 
         }
 
-        public void UpdateOrder()
+        public void UpdateOrder(Models.Order order)
         {
 
         }
