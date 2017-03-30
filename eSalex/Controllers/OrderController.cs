@@ -11,16 +11,21 @@ namespace eSalex.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            Models.OrderService orderService = new Models.OrderService();
-            var order = orderService.GetOrderById("123");
-            ViewBag.CustId = order.CustId;
-            ViewBag.CustName = order.CustName;
-            return View();            
+            //Models.OrderService orderService = new Models.OrderService();
+            //var order = orderService.GetOrderById("123");
+            //ViewBag.CustId = order.CustId;
+
+            
+            return View();
         }
 
         public ActionResult InsertOrder()
         {
-            return View();
+            ViewBag.Desc1 = "I am ViewBag";
+            ViewData["Desc2"] = "I am ViewData";
+            TempData["Desc3"] = "I am TempData";
+
+            return RedirectToAction("Index");
         }
 
         [HttpPost()]
@@ -29,6 +34,16 @@ namespace eSalex.Controllers
             Models.OrderService orderService = new Models.OrderService();
             orderService.InsertOrder(order);
             return View("Index");
+        }
+
+        [HttpGet()]
+        public JsonResult TestJson()
+        {
+            var result = new Models.Order();
+            result.CustId = "123";
+            result.CustName = "TAO"; //實際上是透過資料庫抓取，該處僅為練習
+
+            return this.Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
