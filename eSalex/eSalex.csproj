@@ -200,6 +200,7 @@
     <Compile Include="Areas\Emp\EmpAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -279,6 +280,8 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Index2.cshtml" />
     <Content Include="Views\Order\InsertOrder.cshtml" />
+    <Content Include="Views\_LayoutPage1.cshtml" />
+    <Content Include="Views\Layout\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,7 +313,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49587</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -21,10 +21,8 @@ namespace eSalex.Controllers
 
         public ActionResult InsertOrder()
         {
-            ViewBag.Desc1 = "I am ViewBag";
-            ViewData["Desc2"] = "I am ViewData";
-            TempData["Desc3"] = "I am TempData";
-
+            Models.Order order = new Models.Order();
+            order.CustName = "TAO";
             return RedirectToAction("Index");
         }
 
