@@ -23,7 +23,6 @@ namespace eSalex.Controllers
         public ActionResult InsertOrder()
         {
             Models.Order order = new Models.Order();
-            order.CustName = "TAO";
             return View(order);
         }
 
@@ -35,14 +34,5 @@ namespace eSalex.Controllers
             return View("Index");
         }
 
-        [HttpGet()]
-        public JsonResult TestJson()
-        {
-            var result = new Models.Order();
-            result.CustId = "123";
-            result.CustName = "TAO"; //實際上是透過資料庫抓取，該處僅為練習
-
-            return this.Json(result, JsonRequestBehavior.AllowGet);
-        }
     }
 }

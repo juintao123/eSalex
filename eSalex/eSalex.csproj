@@ -278,10 +278,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Order\Index2.cshtml" />
     <Content Include="Views\Order\InsertOrder.cshtml" />
-    <Content Include="Views\_LayoutPage1.cshtml" />
-    <Content Include="Views\Layout\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
