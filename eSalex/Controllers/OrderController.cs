@@ -26,6 +26,12 @@ namespace eSalex.Controllers
             return View(order);
         }
 
+        //[HttpPost]
+        //public ActionResult CreateOrder(eSalex.Models.Order data)
+        //{
+        //    return 0;
+        //}
+
         [HttpPost()]
         public ActionResult InsertOrder(Models.Order order)
         {

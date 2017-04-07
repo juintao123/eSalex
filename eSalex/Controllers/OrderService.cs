@@ -10,6 +10,7 @@ namespace eSalex.Models
     /// </summary>
     public class OrderService
     {
+        private 
         /// <summary>
         /// 新增訂單
         /// </summary>
