@@ -9,10 +9,11 @@ namespace eSalex.Controllers
     public class OrderController : Controller
     {
         // GET: Order
+        // 訂單管理系統首頁
         public ActionResult Index()
         {
-            //Models.OrderService orderService = new Models.OrderService();
-            //var order = orderService.GetOrderById("123");
+            Models.OrderService orderService = new Models.OrderService();
+            ViewBag.Data = orderService.GetOrders();
             //ViewBag.CustId = order.CustId;
 
             
@@ -23,7 +24,7 @@ namespace eSalex.Controllers
         {
             Models.Order order = new Models.Order();
             order.CustName = "TAO";
-            return RedirectToAction("Index");
+            return View(order);
         }
 
         [HttpPost()]

@@ -7,14 +7,16 @@ namespace eSalex.Models
 {
     public class Order
     {
+
         /// <summary>
         /// 訂單編號
         /// </summary>
-        public int OrderDd { get; set; }
+        public int OrderId { get; set; }
 
         /// <summary>
         /// 客戶代號
         /// </summary>
+        
         public string CustId { get; set; }
 
         /// <summary>
