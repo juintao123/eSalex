@@ -6,7 +6,7 @@ using System.Web;
 
 namespace eSalex.Models
 {
-    public class Order
+    public class OrderViewModel
     {
 
         /// <summary>
@@ -31,12 +31,12 @@ namespace eSalex.Models
         /// 業務(員工)代號
         /// </summary>
         [Display(Name = "業務(員工)代號")]
-        public int EmpId { get; set; }
+        public string EmpId { get; set; }
 
         /// <summary>
         /// 業務(員工姓名)
         /// </summary>
-        [Display(Name = "務(員工姓名)")]
+        [Display(Name = "業務(員工)姓名")]
         public string EmpName { get; set; }
 
         /// <summary>
@@ -67,13 +67,13 @@ namespace eSalex.Models
         /// 出貨公司名稱
         /// </summary>
         [Display(Name = "出貨公司名稱")]
-        public int ShipperName { get; set; }
+        public string ShiperName { get; set; }
 
         /// <summary>
         /// 運費
         /// </summary>
         [Display(Name = "運費")]
-        public double Freight { get; set; }
+        public decimal Freight { get; set; }
 
         /// <summary>
         /// 出貨說明

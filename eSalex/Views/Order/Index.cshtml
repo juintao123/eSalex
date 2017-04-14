@@ -1,34 +1,91 @@
-﻿
+﻿@model IEnumerable<eSalex.Models.OrderViewModel>
 @{
-    Layout = null;
+    ViewBag.Title = "Home Page";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-       <div>訂單編號</div>
-       <div>@Html.TextBox("txtOrderId")</div>
-       <table>
-           <tr>
-               <td>客戶代號</td>
-               <td>客戶名稱</td>
-               <td>負責員工</td>
-           </tr>
-           @foreach (var item in (List<eSalex.Models.Order>)ViewBag.Data)
-           {
-               <tr>
-               <td>@item.CustId</td>
-               <td>@item.CustName</td>
-               <td>@item.EmpName</td>
-               </tr>
-           }
-       </table>
-    </div>
-</body>
-</html>
+<div class="row">
+    <div class="col-md-12"><br>
+
+        @using (Html.BeginForm("SearchByCustName", "Order"))
+        {
+            @Html.TextBox("CustName", null, new { @class = "btn-default" })
+            <input type="submit" value="搜尋" class="btn-default" />
+        }
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().OrderId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().CustId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().CustName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().EmpId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().EmpName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.First().Orderdate)
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.OrderId
+                        </td>
+                        <td>
+                            @item.CustId
+                        </td>
+                        <td>
+                            @item.CustName
+                        </td>
+                        <td>
+                            @item.EmpId
+                        </td>
+                        <td>
+                            @item.EmpName
+                        </td>
+                        <td>
+                            @item.Orderdate
+                        </td>
+
+
+                    </tr>
+                }
+
+            </table>
+</div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+     $(function () {
+         $('.pagination>li>a[href]').each(function (i, item) {
+             var page = $(item).attr('href').replace('/Index?page=', '');
+             $(item).attr('href', '#').click(function () { postPage(page); });
+
+         });
+     });
+
+     function postPage(page) {
+         var targetFormId = '#ProductList';
+         if ($(targetFormId).size() > 0) {
+             $('<input>')
+                 .attr({ type: 'hidden', id: 'PageIndex', name: 'PageIndex', value: page })
+                 .appendTo($(targetFormId));
+             $(targetFormId).submit();
+         }
+     };
+    </script>
+
+}

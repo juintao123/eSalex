@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{68AFD5A3-E200-4664-AFB1-CBB4B99F5007}</ProjectGuid>
+    <ProjectGuid>{A0958493-D5B7-4FAC-B995-6C64DC3C2E1B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eSaleService</RootNamespace>
-    <AssemblyName>eSaleService</AssemblyName>
+    <RootNamespace>FuntionHelper</RootNamespace>
+    <AssemblyName>FuntionHelper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,18 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OrderService.cs" />
+    <Compile Include="HelperFunctions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\eSaleDao\eSaleDao.csproj">
-      <Project>{cf5eb9c6-5c34-441b-a65e-dc36a5388de3}</Project>
-      <Name>eSaleDao</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\eSaleModel\eSaleModel.csproj">
-      <Project>{8b390c9c-85ec-4461-a1fb-830726eab48c}</Project>
-      <Name>eSaleModel</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
