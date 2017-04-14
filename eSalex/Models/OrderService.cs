@@ -86,10 +86,12 @@ namespace eSalex.Models
         /// 刪除訂單
         /// </summary>
         /// <param name="id"></param>
-        public void DeleteOrderById(string OrderId)
+        public void DeleteOrderById(int OrderId)
         {
             DataTable dt = new DataTable();
-            string sql = @"DELETE FROM Sales.Order WHERE OrderId = @OrderId";
+            string sql = @"DELETE FROM Sales.OrderDetails WHERE OrderID = @OrderId
+
+                           DELETE FROM Sales.Orders WHERE OrderID = @OrderId";
             using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
             {
                 conn.Open();
@@ -107,7 +109,7 @@ namespace eSalex.Models
         /// 更新訂單
         /// </summary>
         /// <param name="order"></param>
-        public void UpdateOrder(string OrderId)
+        public void UpdateByOrderId(int OrderId)
         {
             DataTable dt = new DataTable();
             string sql = @"SELECT
@@ -119,12 +121,12 @@ namespace eSalex.Models
             INNER JOIN HR.Employees AS C ON A.EmployeeID = C.EmployeeID
             INNER JOIN Sales.Shippers AS D ON A.ShipperID = D.ShipperID
 
-            WHERE B.CompanyName = @CustName";
+            WHERE A.OrderId = @OrderId";
             using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.Add(new SqlParameter("@CustName", CustName));
+                cmd.Parameters.Add(new SqlParameter("@OrderId", OrderId));
                 SqlDataAdapter searchOrder = new SqlDataAdapter(cmd);
                 searchOrder.Fill(dt);
                 conn.Close();

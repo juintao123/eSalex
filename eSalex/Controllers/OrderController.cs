@@ -21,7 +21,7 @@ namespace eSalex.Controllers
             return View(result);
         }
 
-        public ActionResult InsertOrder()
+        public ActionResult UpdateByOrderId(int OrderId)
         {
             Models.OrderViewModel order = new Models.OrderViewModel();
             return View(order);
@@ -34,11 +34,11 @@ namespace eSalex.Controllers
             return View(result);
         }
 
-        [HttpPost]
-        public ActionResult DeleteOrder(string OrderId)
+        [HttpGet]
+        public ActionResult DeleteByOrderId(int id)
         {
-            orderService.DeleteOrderById(OrderId);
-            return View();
+            orderService.DeleteOrderById(id);
+            return RedirectToAction("Index");
         }
 
 
