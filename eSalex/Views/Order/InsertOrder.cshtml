@@ -1,4 +1,4 @@
-﻿@model IEnumerable<eSalex.Models.OrderViewModel>
+﻿@model eSalex.Models.OrderViewModel
 
 @{
     ViewBag.Title = "InsertOrder";
@@ -7,126 +7,122 @@
 <h2>新增訂單</h2>
 
 
-<form action="Order/InsertOrder" enctype="multipart/form-data" method="post">
+<form action="InsertOrder" enctype="multipart/form-data" method="post">
 
     @Html.AntiForgeryToken()
             
-    <table class="table-hover">
+    <table class="table table-hover">
         <tr>
             <td>
-                客戶名稱 
+                @Html.LabelFor(model => model.CustName, htmlAttributes: new { @class = "control-label" })
             </td>
             <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                @Html.DropDownList("CustId")
             </td>
         </tr>
 
         <tr>
             <td>
-                負責員工名稱 &nbsp
+                @Html.LabelFor(model => model.EmpName, htmlAttributes: new { @class = "control-label" })
             </td>
             <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                訂單日期
-            </td>
-            <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
-            </td>
-            <td>
-                &nbsp需要日期&nbsp
-            </td>
-            <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                @Html.DropDownList("EmpId")
             </td>
         </tr>
 
         <tr>
             <td>
-                出貨日期
+                &nbsp @Html.LabelFor(model => model.Orderdate, htmlAttributes: new { @class = "control-label" })
             </td>
             <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
-            </td>
-        </tr>
-
-        <tr>
+                @Html.EditorFor(model => model.Orderdate, new { htmlAttributes = new { @class = "form-control",@type = "date" } })
+                @Html.ValidationMessageFor(model => model.Orderdate, "", new { @class = "text-danger" })
             <td>
-                出貨公司名稱
+                @Html.LabelFor(model => model.RequiredDate, htmlAttributes: new { @class = "control-label" })
             </td>
             <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.RequiredDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.RequiredDate, "", new { @class = "text-danger" })
             </td>
         </tr>
 
         <tr>
             <td>
-                運費
+                @Html.LabelFor(model => model.ShippedDate, htmlAttributes: new { @class = "control-label" })
             </td>
             <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                出貨國家
-            </td>
-            <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
-            </td>
-            <td>
-                &nbsp出貨城市
-            </td>
-            <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ShippedDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.ShippedDate, "", new { @class = "text-danger" })
             </td>
         </tr>
 
         <tr>
             <td>
-                出貨地區
+                @Html.LabelFor(model => model.ShiperName, htmlAttributes: new { @class = "control-label" })
             </td>
             <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
-            </td>
-            <td>
-                &nbsp郵遞區號
-            </td>
-            <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                @Html.DropDownList("ShipperId")
             </td>
         </tr>
 
         <tr>
             <td>
-                出貨地址
+                @Html.LabelFor(model => model.Freight, htmlAttributes: new { @class = "control-label" })
             </td>
             <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Freight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Freight, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ShipCountry, htmlAttributes: new { @class = "control-label" })
             </td>
             <td>
-                &nbsp出貨說明
+                @Html.EditorFor(model => model.ShipCountry, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ShipCountry, "", new { @class = "text-danger" })
             </td>
             <td>
-                @Html.EditorFor(model => model.OrderId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.ShipCity, htmlAttributes: new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ShipCity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ShipCity, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ShipRegion, htmlAttributes: new { @class = "control-label " })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ShipRegion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ShipRegion, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.LabelFor(model => model.ShipPostalCode, htmlAttributes: new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ShipPostalCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ShipPostalCode, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.ShipAddress, htmlAttributes: new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ShipAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ShipAddress, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.LabelFor(model => model.ShipName, htmlAttributes: new { @class = "control-label" })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.ShipName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ShipName, "", new { @class = "text-danger" })
             </td>
         </tr>
 

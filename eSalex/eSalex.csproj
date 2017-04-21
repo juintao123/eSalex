@@ -283,7 +283,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\InsertOrder.cshtml" />
-    <Content Include="Views\Order\SearchByCustName.cshtml" />
+    <Content Include="Views\Order\SearchOrder.cshtml" />
+    <Content Include="Views\Order\InsertOrder2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

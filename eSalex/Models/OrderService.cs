@@ -60,7 +60,7 @@ namespace eSalex.Models
         /// 新增訂單
         /// </summary>
         /// <param name="order"></param>
-        public int InsertOrder(Models.OrderViewModel order)
+        public void InsertOrder(Models.OrderViewModel order)
         {
             string sql = @"INSERT INTO [Sales].[Orders]
 
@@ -75,7 +75,6 @@ namespace eSalex.Models
 
             select scope_identity()
             ";
-            int orderId = 11078;
             string format1 = Convert.ToDateTime(order.Orderdate).ToString("yyyy-MM-dd");
             string format2 = Convert.ToDateTime(order.RequiredDate).ToString("yyyy-MM-dd");
             string format3 = Convert.ToDateTime(order.ShippedDate).ToString("yyyy-MM-dd");
@@ -103,7 +102,6 @@ namespace eSalex.Models
                 conn.Close();
 
             }
-            return orderId;
         }
 
         /// <summary>
@@ -217,6 +215,91 @@ namespace eSalex.Models
             }
             return this.MapOrderDataToList(dt);
             
+        }
+
+
+
+
+
+
+
+
+
+
+        public List<Models.OrderViewModel> GetCustName()
+        {
+            DataTable dt = new DataTable();
+            string sql = @"SELECT CustomerID,CompanyName AS CustName  FROM Sales.Customers ";
+
+            using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter allOrder = new SqlDataAdapter(cmd);
+                allOrder.Fill(dt);
+                conn.Close();
+
+            }
+            List<Models.OrderViewModel> result = new List<OrderViewModel>();
+            foreach (DataRow row in dt.Rows)
+            {
+                result.Add(new OrderViewModel()
+                {
+                    CustId = row["CustomerID"].ToString(),
+                    CustName = row["CustName"].ToString(),
+                });
+            }
+            return result;
+        }
+        public List<Models.OrderViewModel> GetEmpName()
+        {
+            DataTable dt = new DataTable();
+            string sql = @"SELECT EmployeeID,LastName + FirstName AS EmpName  FROM HR.Employees ";
+
+            using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter allOrder = new SqlDataAdapter(cmd);
+                allOrder.Fill(dt);
+                conn.Close();
+
+            }
+            List<Models.OrderViewModel> result = new List<OrderViewModel>();
+            foreach (DataRow row in dt.Rows)
+            {
+                result.Add(new OrderViewModel()
+                {
+                    EmpId = row["EmployeeID"].ToString(),
+                    EmpName = row["EmpName"].ToString(),
+                });
+            }
+            return result;
+        }
+        public List<Models.OrderViewModel> GetShiperName()
+        {
+            DataTable dt = new DataTable();
+            string sql = @"SELECT ShipperID,CompanyName AS ShiperName FROM Sales.Shippers ";
+
+            using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter allOrder = new SqlDataAdapter(cmd);
+                allOrder.Fill(dt);
+                conn.Close();
+
+            }
+            List<Models.OrderViewModel> result = new List<OrderViewModel>();
+            foreach (DataRow row in dt.Rows)
+            {
+                result.Add(new OrderViewModel()
+                {
+                    ShipperId = (int)row["ShipperID"],
+                    ShiperName = row["ShiperName"].ToString(),
+                });
+            }
+            return result;
         }
 
     }

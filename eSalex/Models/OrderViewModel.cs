@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.Mvc.Html;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using eSalex.Models;
 
 namespace eSalex.Models
 {
     public class OrderViewModel
     {
+        public IEnumerable<SelectListItem> MyList { get; set; }
 
         /// <summary>
         /// 訂單編號
