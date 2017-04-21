@@ -49,7 +49,7 @@ namespace eSalex.Models
         /// 需要日期
         /// </summary>
         [Display(Name = "需要日期")]
-        public DateTime? RequireDdate { get; set; }
+        public DateTime? RequiredDate { get; set; }
 
         /// <summary>
         /// 出貨日期

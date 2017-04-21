@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
@@ -41,12 +42,17 @@ namespace eSalex.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult InsertOrder()
+        {
+            List<OrderViewModel> result = orderService.GetOrderList();
+
+            return View(result);
+        }
 
         [HttpPost()]
-        public ActionResult InsertOrder(Models.OrderViewModel order)
+        public ActionResult InsertOrder(FormCollection order)
         {
             Models.OrderService orderService = new Models.OrderService();
-            //orderService.InsertOrder(order);
             return View("Index");
         }
 
