@@ -38,7 +38,7 @@ namespace eSalex.Models
         /// 業務(員工)代號
         /// </summary>
         [Display(Name = "業務(員工)代號")]
-        public string EmpId { get; set; }
+        public int EmpId { get; set; }
 
         /// <summary>
         /// 業務(員工姓名)

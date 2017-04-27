@@ -7,12 +7,6 @@
 <div class="row">
     <div class="col-md-12"><br>
 
-        @using (Html.BeginForm("SearchByCustName", "Order"))
-        {
-            @Html.TextBox("CustName", null, new { @class = "btn-default" })
-            <input type="submit" value="搜尋" class="btn-default" />
-        }
-
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -58,7 +52,7 @@
                             @item.Orderdate
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) |
+                            @Html.ActionLink("修改", "UpdateByOrderId", new { OrderId = item.OrderId }) |
                             @Html.ActionLink("删除", "DeleteByOrderId", new { id = item.OrderId })
                         </td>
 

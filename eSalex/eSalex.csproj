@@ -211,6 +211,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderDetailViewModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -284,7 +285,8 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\InsertOrder.cshtml" />
     <Content Include="Views\Order\SearchOrder.cshtml" />
-    <Content Include="Views\Order\InsertOrder2.cshtml" />
+    <Content Include="Views\Order\SearchOrderDone.cshtml" />
+    <Content Include="Views\Order\UpdateByOrderId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
