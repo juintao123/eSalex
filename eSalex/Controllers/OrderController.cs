@@ -74,10 +74,13 @@ namespace eSalex.Controllers
             this.GetDropDownList();
             foreach (var data in service.GetOrderById(OrderId))
             {
+                string format1 = Convert.ToDateTime(order.Orderdate).ToString("yyyy-MM-dd");
+                string format2 = Convert.ToDateTime(order.RequiredDate).ToString("yyyy-MM-dd");
+                string format3 = Convert.ToDateTime(order.ShippedDate).ToString("yyyy-MM-dd");
                 order.OrderId = data.OrderId;
-                order.Orderdate = data.Orderdate;
-                order.RequiredDate = data.RequiredDate;
-                order.ShippedDate = data.ShippedDate;
+                format1 = data.Orderdate.ToString();
+                format2 = data.RequiredDate.ToString();
+                format3 = data.ShippedDate.ToString();
                 order.Freight = data.Freight;
                 order.ShipName = data.ShipName;
                 order.ShipAddress = data.ShipAddress;
