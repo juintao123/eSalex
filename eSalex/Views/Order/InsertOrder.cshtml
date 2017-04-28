@@ -148,9 +148,46 @@
 
     </table>
 
+    @*<table>
+        <tr><td><input type="button" class="btn btn-primary" value="新增商品" id='addButton'></td></tr>
+        <tr>
+            <td>商品</td>
+            <td>單價</td>
+            <td>數量</td>
+            <td>小記</td>
+        </tr>
+    @using (Html.BeginForm())
+    {
+        <tr>
+            <td>
+                <input type="text" id='orderdetail' name="orderdetail" class="form-control">
+            </td>
+            <td>
+                rrr
+            </td>
+            <td>
+                rrr
+            </td>
+            <td>
+                rrr
+            </td>
+            <td>
+                <input type="button" class="btn btn-info" value='移除輸入框' id='removeButton'>
+            </td>
+        </tr>
+    }
+    </table>*@
        
 </form>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/mvc/4.0/jquery.validate.unobtrusive.min.js"></script>
+
+

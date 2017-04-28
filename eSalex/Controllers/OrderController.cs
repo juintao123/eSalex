@@ -68,19 +68,19 @@ namespace eSalex.Controllers
         [HttpGet]
         public ActionResult UpdateByOrderId(string OrderId)
         {
-            Models.OrderViewModel order = new Models.OrderViewModel();
+            Models.OrderUpdateModel order = new Models.OrderUpdateModel();
             List<OrderDetailViewModel> detail = new List<OrderDetailViewModel>();
             Models.OrderService service = new OrderService();
             this.GetDropDownList();
             foreach (var data in service.GetOrderById(OrderId))
             {
-                string format1 = Convert.ToDateTime(order.Orderdate).ToString("yyyy-MM-dd");
-                string format2 = Convert.ToDateTime(order.RequiredDate).ToString("yyyy-MM-dd");
-                string format3 = Convert.ToDateTime(order.ShippedDate).ToString("yyyy-MM-dd");
+                string format1 = Convert.ToDateTime(data.Orderdate).ToString("yyy-MM-dd");
+                string format2 = Convert.ToDateTime(data.RequiredDate).ToString("yyy-MM-dd");
+                string format3 = Convert.ToDateTime(data.ShippedDate).ToString("yyy-MM-dd");
                 order.OrderId = data.OrderId;
-                format1 = data.Orderdate.ToString();
-                format2 = data.RequiredDate.ToString();
-                format3 = data.ShippedDate.ToString();
+                order.Orderdate = format1;
+                order.RequiredDate = format2;
+                order.ShippedDate = format3;
                 order.Freight = data.Freight;
                 order.ShipName = data.ShipName;
                 order.ShipAddress = data.ShipAddress;
@@ -91,17 +91,6 @@ namespace eSalex.Controllers
                 order.CustId = data.CustId;
                 order.EmpId = data.EmpId;
                 order.ShipperId = data.ShipperId;
-            }
-            foreach (var data in service.GetOrderDetailById(OrderId))
-            {
-                detail.Add(new OrderDetailViewModel()
-                {
-                    OrderId = data.OrderId,
-                    ProductId = data.ProductId,
-                    ProductName = data.ProductName,
-                    UnitPrice = data.UnitPrice,
-                    Qty = data.Qty
-                });
             }
             ViewBag.OrderDetail = detail;
             return View(order);
@@ -163,7 +152,7 @@ namespace eSalex.Controllers
         {
             Models.OrderService orderservice = new OrderService();
             orderService.InsertOrder(order);
-            return View();
+            return View("SearchOrder");
         }
 
     }

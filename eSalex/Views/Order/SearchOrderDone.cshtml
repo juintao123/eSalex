@@ -71,15 +71,15 @@
                 <td></td>
                 <td></td>
             </tr>
-            @foreach (var aa in Model)
+            @foreach (var data in Model)
             {
                 <tr>
-                    <td>@aa.OrderId</td>
-                    <td>@aa.CustName</td>
-                    <td>@aa.Orderdate</td>
-                    <td>@aa.ShippedDate</td>
-                    <td>@Html.ActionLink("修改", "UpdateByOrderId", new { id = aa.OrderId })</td>
-                    <td>@Html.ActionLink("刪除", "DeleteByOrderId", new { id = aa.OrderId })</td>
+                    <td>@data.OrderId</td>
+                    <td>@data.CustName</td>
+                    <td>@data.Orderdate</td>
+                    <td>@data.ShippedDate</td>
+                    <td>@Html.ActionLink("修改", "UpdateByOrderId", new { OrderId = data.OrderId })</td>
+                    <td>@Html.ActionLink("刪除", "DeleteByOrderId", new { id = data.OrderId })</td>
                 </tr>
             }
         </table>
